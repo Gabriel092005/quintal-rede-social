@@ -9,7 +9,6 @@ import {
   HandHeart,
   MessageCircle,
   Search,
-  Send,
   Trash2,
 } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
