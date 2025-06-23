@@ -1,6 +1,6 @@
 import { Card,CardDescription,CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Pencil, Send,Trash2,  } from "lucide-react";
+import { Send,Trash2,  } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

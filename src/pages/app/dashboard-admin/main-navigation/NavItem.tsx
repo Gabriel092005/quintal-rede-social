@@ -1,5 +1,5 @@
 
-import { Bell, Home, MessageSquare,Settings, Power, Eye, AlertTriangle, BarChart } from "lucide-react";
+import { Bell, Home, MessageSquare,Settings, Power, Eye, AlertTriangle } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Sair } from "./Sair";
