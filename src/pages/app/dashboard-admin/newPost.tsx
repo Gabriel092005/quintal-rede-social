@@ -62,8 +62,10 @@ export function NewPost() {
       >
         <textarea
           {...register("content")}
+
           placeholder="No que você está pensando?"
-          className="w-full min-h-[120px] p-3 rounded-md resize-none text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-white border border-zinc-300 dark:border-zinc-700"
+          className="w-full min-h-[120px] p-3 rounded-md resize-none text-sm focus:outline-none
+ bg-white dark:bg-zinc-800 text-zinc-800 dark:text-white border border-zinc-300 dark:border-zinc-700"
         />
 
         {previewUrl && (
