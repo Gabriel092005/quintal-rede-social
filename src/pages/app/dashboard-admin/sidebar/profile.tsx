@@ -1,9 +1,10 @@
-import { Avatar  , AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronDown, House, Mail } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useQuery } from "@tanstack/react-query";
 import { Me } from "@/api/profile";
+import { getInialts } from "@/lib/utils";
 
 export function Profile(){
     const {data:profile} = useQuery({
@@ -20,13 +21,8 @@ export function Profile(){
                     <Dialog>
                         <DialogTrigger>
                                  <Avatar className="h-12 w-12 dark:text-black ">       
-<AvatarImage
-  src={
-    profile.image_path
-      ? `https://quintal-backend-224.onrender.com/uploads/${profile.image_path}`
-      : '@/assets/avatar-default.svg'
-  }
-/>                {/* só aparece se a imagem falhar */}
+                               <AvatarImage src={`https:///quintal-backend-224.onrender.com/uploads/${profile.image_path}`} />
+                  <AvatarFallback>{getInialts(profile.nome)}</AvatarFallback>   {/* só aparece se a imagem falhar */}
                    </Avatar>
                         </DialogTrigger>
                         <DialogContent className="w-[26rem] p-2">
