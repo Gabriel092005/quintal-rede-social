@@ -1,6 +1,6 @@
 import { Card,CardDescription,CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronDown, Edit3, Pencil, PencilRuler, Send, Theater, Trash2, User2, Users, Users2 } from "lucide-react";
+import { Edit3, Pencil, Send,Trash2,  } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -17,11 +17,7 @@ import { SendMessages } from "@/api/send";
 import { Me } from "@/api/profile";
 import { getInialts } from "@/lib/utils";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Off } from "./off";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import avatar  from '@/assets/Imagem WhatsApp 2024-08-22 às 13.25.44_ea1fc4c9.jpg'
+import { DropdownMenuContent} from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "@/components/theme/theme-toggle";
 
 export interface MessagesResponse{

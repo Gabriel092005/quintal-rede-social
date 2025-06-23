@@ -1,7 +1,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-import { ChevronDown,HandHeart,MessageCircle,MessageSquare,Plus,PlusCircle,Search, Send, Trash2} from "lucide-react";
+import { ChevronDown,HandHeart,MessageCircle,Search, Send, Trash2} from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { Chat } from "./Chat";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -10,10 +10,8 @@ import { socket } from "@/lib/socket";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { FetchPosts, PostsResponse } from "@/api/fetch-posts";
-import { Skeleton } from "@/components/ui/skeleton";
 import { getInialts } from "@/lib/utils";
-import { React } from "@/api/like";
-import { useParams } from "react-router-dom";
+import { React } from "@/api/like";;
 import { commentar } from "@/api/commentar";
 import { Me } from "@/api/profile";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -26,7 +24,7 @@ export function DashBoardAdmin() {
   const [newComments, setNewComments] = useState<Record<number, string>>({});
   const [post, setPost] = useState<PostsResponse[]>([])
 
-  const {data:posts, refetch, isLoading} = useQuery({
+  const {data:posts, refetch} = useQuery({
     queryFn:()=>FetchPosts({query:query}),
     queryKey:['post']
   })

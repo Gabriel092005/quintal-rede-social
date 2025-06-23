@@ -1,7 +1,6 @@
 
 import { Outlet } from "react-router-dom";
-import Logo from '../../assets/teste.png'
-import { MessageCircleCodeIcon, MessageSquare, Mic } from "lucide-react";
+import { MessageCircleCodeIcon } from "lucide-react";
 
 export function AuthLayoutPacient(){
   return(

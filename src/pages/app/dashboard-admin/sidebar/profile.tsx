@@ -1,6 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import avatar  from '../../../../assets/Imagem WhatsApp 2024-08-22 às 13.25.44_ea1fc4c9.jpg'
-import { ChevronDown, House, Locate, LocateFixed, Mail } from "lucide-react";
+import { ChevronDown, House, Mail } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useQuery } from "@tanstack/react-query";

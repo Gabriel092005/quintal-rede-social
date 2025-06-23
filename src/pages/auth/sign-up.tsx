@@ -2,7 +2,7 @@ import { Register } from "@/api/sign-up";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation} from "@tanstack/react-query";
 import { Loader } from "lucide-react";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -24,7 +24,7 @@ export function SignUp() {
   
   const { register, handleSubmit, formState: { isSubmitting } , reset } = useForm<SignInForm>({});
 
-  const {mutateAsync:create,data:response} = useMutation({
+  const {mutateAsync:create} = useMutation({
     mutationFn:Register
   })
    async function handleSignIn(data: SignInForm) {

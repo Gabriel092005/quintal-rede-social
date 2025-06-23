@@ -1,5 +1,4 @@
 import { Postar } from "@/api/postar";
-import { ModeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   DialogContent,
@@ -103,9 +102,7 @@ export function NewPost() {
         </div>
       </form>
 
-      <div className="mt-4 flex justify-end">
-        <ModeToggle />
-      </div>
+     
     </DialogContent>
   );
 }

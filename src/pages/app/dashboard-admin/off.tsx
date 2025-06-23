@@ -1,6 +1,6 @@
 import { Card,CardDescription,CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronDown, Edit3, Pencil, PencilRuler, Send, Trash2, User2, Users, Users2 } from "lucide-react";
+import { ChevronDown, Edit3, Pencil,Send, Trash2,Users,  } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -51,7 +51,7 @@ export function Off() {
    })
    type SendMessagesBodyProps = z.infer<typeof sendMessagesBodySchema>
 
-   const {register, reset, handleSubmit} = useForm<SendMessagesBodyProps>()
+   const {reset, handleSubmit} = useForm<SendMessagesBodyProps>()
    const {mutateAsync:send} = useMutation({
     mutationFn:SendMessages
    })
