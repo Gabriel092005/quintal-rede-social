@@ -85,8 +85,8 @@ export function Chat() {
       }
 
   return (
-<div className="h-screen w-full flex ">
-  <Card className="flex flex-col max-h-[90%] w-full  shadow-md rounded-none bg-white dark:bg-zinc-900 border-none">
+<div className="min-h-[60vh] w-full flex flex-col">
+<Card className="flex flex-col h-full w-full shadow-md rounded-none bg-white dark:bg-zinc-900 border-none">
     <CardHeader className="bg-zinc-100 dark:bg-zinc-800">
       <CardTitle className="text-xl font-bold text-zinc-800 dark:text-white">
          <div className="flex items-center justify-between"> 
