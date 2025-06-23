@@ -2,13 +2,18 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://quintal-backend-224.onrender.com',
+//   baseURL: 'https://quintal-backend-224.onrender.com',      
+  baseURL: 'http://localhost"3333',
   withCredentials: true
 });
 
 // Interceptor para adicionar o token
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem('token'); // Ou cookies
+const token = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('token='))
+  ?.split('=')[1];
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
