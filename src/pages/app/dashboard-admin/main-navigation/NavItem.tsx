@@ -58,7 +58,7 @@ export function NavItem() {
         >
           <Bell className="h-5 w-5 text-zinc-700" />
           <Dialog>
-             <DialogTrigger>
+             <DialogTrigger disabled>
                    <span className="text-left font-bold text-zinc-700  ">NOTIFICAÇÕES</span>
              </DialogTrigger>
              <DialogContent>
@@ -145,7 +145,8 @@ export function NavItem() {
         </Link>
      
 
-               <Link
+               {/* <Link
+               
           to="/dash"
           className={`
             flex items-center justify-start gap-3 w-full
@@ -159,10 +160,10 @@ export function NavItem() {
         >
           <BarChart className="h-5 w-5" />
           <span className="text-left font-bold">DASHBOARD</span>
-        </Link>
+        </Link> */}
 
                <Link
-          to="/config"
+          to="/home"
           className={`
             flex items-center justify-start gap-3 w-full
             p-2 text-xs transition-colors duration-200
@@ -173,7 +174,7 @@ export function NavItem() {
             }
           `}
         >
-          <Settings className="h-5 w-5" />
+          <Settings  className="h-5 w-5" />
           <span className="text-left font-bold">DEFINIÇÕES</span>
         </Link>
 

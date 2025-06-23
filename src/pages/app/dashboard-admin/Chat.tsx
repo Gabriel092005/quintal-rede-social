@@ -77,6 +77,12 @@ export function Chat() {
     useEffect(()=>{
       refetch()
   },[post])
+
+  useEffect(() => {
+  if (endOfMessagesRef.current) {
+    endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+}, [Messages]);
    
   if(!Messages){
     return
