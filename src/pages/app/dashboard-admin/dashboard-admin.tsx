@@ -190,7 +190,7 @@ export function DashBoardAdmin() {
             <Dialog >
               <DialogTrigger asChild>
                 <Avatar className="h-8 w-8 cursor-pointer">
-                  <AvatarImage src={`http://localhost:3333/uploads/${item.users.image_path}`} />
+                  <AvatarImage src={`https://quintal-backend-224.onrender.com/uploads/${item.users.image_path}`} />
                   <AvatarFallback>{getInitials(item.users.nome)}</AvatarFallback>
                 </Avatar>
               </DialogTrigger>
@@ -201,7 +201,7 @@ export function DashBoardAdmin() {
                 </DialogHeader>
                 <div className="flex flex-col items-center ">
                   <Avatar className="h-16 w-16">
-                    <AvatarImage src={`http://localhost:3333/uploads/${item.users.image_path}`} />
+                    <AvatarImage src={`https://quintal-backend-224.onrender.com/uploads/${item.users.image_path}`} />
                     <AvatarFallback>{getInitials(item.users.nome)}</AvatarFallback>
                   </Avatar>
                   <div className="text-center space-y-1">
@@ -246,7 +246,7 @@ export function DashBoardAdmin() {
             </div>
           </header>
           <div className="flex flex-col">
-            <img src={`http://localhost:3333/uploads/${item.image_path}`} alt="" />
+            <img src={`https://quintal-backend-224.onrender.com/uploads/${item.image_path}`} alt="" />
             <span className="text-xs text-wrap uppercase mt-2">{item.content}</span>
           <div className="flex items-baseline justify-between">
               <div className="flex gap-1 mt-4 ">
@@ -290,7 +290,7 @@ export function DashBoardAdmin() {
                          >
 
                         <Avatar className="h-7  w-7">
-                          <AvatarImage className="" src={`http://localhost:3333/uploads/${c.users.image_path}`} />
+                          <AvatarImage className="" src={`https://quintal-backend-224.onrender.com/uploads/${c.users.image_path}`} />
                           <AvatarFallback className="tracking-tight font-bold dark:text-zinc-500 dark:bg-emerald-100">{getInialts(profile.nome)}</AvatarFallback>
                        </Avatar>
                       </div>

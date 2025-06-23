@@ -20,12 +20,12 @@ export function Profile(){
                     <Dialog>
                         <DialogTrigger>
                                  <Avatar className="h-12 w-12 dark:text-black ">       
-                               <AvatarImage src={`http://localhost:3333/uploads/${profile.image_path}`} />
+                               <AvatarImage src={`https:///quintal-backend-224.onrender.com/uploads/${profile.image_path}`} />
                   <AvatarFallback>US</AvatarFallback>   {/* só aparece se a imagem falhar */}
                    </Avatar>
                         </DialogTrigger>
                         <DialogContent className="w-[26rem] p-2">
-                           <img     src={`http://localhost:3333/uploads/${profile.image_path}`}
+                           <img     src={`https://quintal-backend-224.onrender.com/uploads/${profile.image_path}`}
     alt="Imagem do usuário em tamanho grande"
     className="rounded-lg"/>
                         </DialogContent>
