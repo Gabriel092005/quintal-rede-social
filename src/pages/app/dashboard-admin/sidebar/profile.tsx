@@ -20,8 +20,13 @@ export function Profile(){
                     <Dialog>
                         <DialogTrigger>
                                  <Avatar className="h-12 w-12 dark:text-black ">       
-                               <AvatarImage src={`https://quintal-backend-224.onrender.com/uploads/${profile.image_path}`} />
-                  <AvatarFallback>US</AvatarFallback>   {/* só aparece se a imagem falhar */}
+<AvatarImage
+  src={
+    profile.image_path
+      ? `https://quintal-backend-224.onrender.com/uploads/${profile.image_path}`
+      : '@/assets/avatar-default.svg'
+  }
+/>                {/* só aparece se a imagem falhar */}
                    </Avatar>
                         </DialogTrigger>
                         <DialogContent className="w-[26rem] p-2">
