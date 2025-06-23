@@ -38,7 +38,7 @@ export function SignUp() {
     try {
       const { email, nome, phone } = data;
 
-      const result = await create({
+          await create({
         email,
         image_path,
         nome,
@@ -46,7 +46,7 @@ export function SignUp() {
       });
 
       toast.success("Usuário cadastrado com sucesso");
-      navigate(`/home/${result.user.id}`);
+      navigate('/');
 
       reset();
       setSelectedFile(null);
