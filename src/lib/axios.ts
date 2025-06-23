@@ -3,7 +3,7 @@
 
 import  axios  from 'axios'
 export const api  = axios.create({
-      baseURL:'http://localhost:3333',
+      baseURL:'https://quintal-backend-224.onrender.com',
       withCredentials:true
 })
 
