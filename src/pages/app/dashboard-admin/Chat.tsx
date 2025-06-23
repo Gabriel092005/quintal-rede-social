@@ -1,6 +1,6 @@
 import { Card,CardDescription,CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Edit3, Pencil, Send,Trash2,  } from "lucide-react";
+import { Pencil, Send,Trash2,  } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -85,8 +85,9 @@ export function Chat() {
       }
 
   return (
-<div className="min-h-[60vh] w-full flex flex-col">
-<Card className="flex flex-col h-full w-full shadow-md rounded-none bg-white dark:bg-zinc-900 border-none">
+<div className="h-screen w-full flex ">
+  <Card className="flex flex-col max-h-[90%] w-full  shadow-md rounded-none bg-white dark:bg-zinc-900 border-none">
+    
     <CardHeader className="bg-zinc-100 dark:bg-zinc-800">
       <CardTitle className="text-xl font-bold text-zinc-800 dark:text-white">
          <div className="flex items-center justify-between"> 
@@ -104,7 +105,10 @@ export function Chat() {
       </CardTitle>
       <CardDescription>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui hic quo ea.</CardDescription>
     </CardHeader>
+
     <Separator />
+
+    {/* Lista de mensagens com scroll ativado */}
     <div className="flex-1 overflow-y-auto px-4 py-2 bg-white dark:bg-zinc-900 space-y-4"ref={parent}>
       {Messages.map((msg) => (
         <div
@@ -171,7 +175,6 @@ export function Chat() {
                         <span className="text-xs tracking-tighter text-nowrap">{msg.user.nome}</span>
                       </div>
                       <div className="flex">
-                           <Edit3 size={14} color="green"/>
                            <Trash2 color="red" size={14}/>
                       </div>
                     </div>

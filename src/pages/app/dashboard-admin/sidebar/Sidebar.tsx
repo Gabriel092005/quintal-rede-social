@@ -10,7 +10,7 @@ export function SideBar() {
     
       {/* Sidebar fixa em telas md+ */}
       <div
-        className="fixed top-0   hidden md:fixed md:inset-y-0 md:left-0 md:w-52 filter brightness-125 dark:bg-zinc-950 
+        className="hidden md:fixed md:inset-y-0 md:left-0 md:w-52 filter brightness-125 dark:bg-zinc-950 
         border-r border-zinc-400 border-solid md:flex md:flex-col md:items-center md:p-2"
       >
         
