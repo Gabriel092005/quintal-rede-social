@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { useMutation } from "@tanstack/react-query";
-import { Loader } from "lucide-react";
+import { Loader, MessageCircleCodeIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -45,9 +45,13 @@ export function SignIn() {
     <>
       <Helmet title="Login" />
 
-      <div className="min-h-screen flex items-center justify-center bg-muted px-4">
-        <div className="w-full max-w-lg bg-white p-10 rounded-2xl shadow-xl border border-zinc-200 space-y-6">
-          <div className="text-center">
+      <div className="min-h-screen flex items-center justify-center bg-muted dark:bg-zinc-800   px-4">
+        <div className="w-full max-w-lg bg-white dark:bg-zinc-900  p-10 rounded-2xl border-none shadow-xl border border-zinc-200 space-y-6">
+          <div className="text-center flex flex-col items-center">
+              <div className="flex text-lg items-center text-muted">
+                            <MessageCircleCodeIcon className="text-blue-500"/>
+                           <span className="font-sm text-lg text-blue-500">Quintal</span>
+                          </div>
             <h1 className="text-4xl font-bold text-zinc-900">LOGIN</h1>
             <p className="mt-2 text-base text-muted-foreground">
               Entre com seu e-mail para acessar seu painel
@@ -60,6 +64,8 @@ export function SignIn() {
                 E-mail
               </Label>
               <Input
+                          className="dark:bg-zinc-800 dark:border-none focus:no-underline"  
+
                 id="email"
                 type="email"
                 placeholder="exemplo@email.com"
@@ -72,6 +78,8 @@ export function SignIn() {
                 Telefone (opcional)
               </Label>
               <Input
+                          className="dark:bg-zinc-800 dark:border-none focus:no-underline"  
+
                 id="phone"
                 placeholder="(+244) 912-345-678"
                 {...register("phone")}
