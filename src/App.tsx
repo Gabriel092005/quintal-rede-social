@@ -13,9 +13,9 @@ import { ThemeProvider } from './components/theme/theme-provider'
 export function App() {
   return(
     <HelmetProvider>
-      <Helmet titleTemplate='%s | pna.angola'/>
+      <Helmet titleTemplate='%s | quintal.'/>
         <Toaster richColors/>
-      <ThemeProvider storageKey="vite-ui-theme" defaultTheme="system">
+      <ThemeProvider storageKey="vite-ui-theme" defaultTheme="light">
       <QueryClientProvider client={queryClient}>
            <RouterProvider router={router}/>
       </QueryClientProvider>
