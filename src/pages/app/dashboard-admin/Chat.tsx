@@ -19,6 +19,7 @@ import { getInialts } from "@/lib/utils";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { DropdownMenuContent} from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "@/components/theme/theme-toggle";
+import { useRef } from "react";
 
 export interface MessagesResponse{
     id: number;
@@ -45,6 +46,7 @@ export function Chat() {
       })
   
    const [parent] = useAutoAnimate()
+  const endOfMessagesRef = useRef<HTMLDivElement | null>(null); // <-- ref para última mensagem
 
    const sendMessagesBodySchema  = z.object({
       content:z.string()
@@ -109,82 +111,64 @@ export function Chat() {
     <Separator />
 
     {/* Lista de mensagens com scroll ativado */}
-    <div className="flex-1 overflow-y-auto px-4 py-2 bg-white dark:bg-zinc-900 space-y-4"ref={parent}>
-      {Messages.map((msg) => (
+       <div className="flex-1 overflow-y-auto px-4 py-2 bg-white dark:bg-zinc-900 space-y-4" ref={parent}>
+  {Messages.map((msg) => (
+    <div
+      key={msg.id}
+      className={`flex items-start gap-3 ${
+        msg.isMe === true ? "justify-end" : "justify-start"
+      }`}
+    >
+      {msg.userId !== profile.id && (
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Avatar className="h-8 w-8 shadow-sm">
+              <AvatarImage src={`http://localhost:3333/uploads/${msg.user.image_path}`} />
+              <AvatarFallback>{getInialts(msg.user.nome)}</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="flex items-center flex-col w-52 gap-1">
+            <img className="h-72 w-72" src={`http://localhost:3333/uploads/${msg.user.image_path}`} />
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
+      <div className="flex flex-col max-w-[90%]">
         <div
-          key={msg.id}
-          className={`flex items-start gap-3 ${
-            msg.isMe === true ? "justify-end" : "justify-start"
+          className={`py-2 px-4 text-sm break-words text-wrap shadow-sm ${
+            msg.userId === profile.id
+              ? "bg-blue-500 text-white rounded-tl-lg rounded-tr-lg rounded-br-lg rounded-bl-xlself-end"
+              : "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white rounded-tr-lg rounded-br-lg rounded-tl-xl rounded-bl-xl"
           }`}
         >
-          {msg.userId !== profile.id && (
-             <>
-             <DropdownMenu>
-              <DropdownMenuTrigger>
-                  <Avatar className="h-8 w-8 shadow-sm">
-              <AvatarImage src={`http://localhost:3333/uploads/${msg.user.image_path}`}  />
-              <AvatarFallback>{getInialts(msg.user.nome)}</AvatarFallback>
-            </Avatar>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="flex items-center flex-col w-52 gap-1">
-              <img className="h-72 w-72" src={`http://localhost:3333/uploads/${msg.user.image_path}`}  />
-                {msg.userId === profile.id  && (
-                    <div>
-                      <Pencil/>
-                      <Trash2/>
-                    </div>
-                )}
-              </DropdownMenuContent>
-            </DropdownMenu>
-             </>
-          )}
-          <div className="flex flex-col max-w-[90%]">
-            <div
-              className={`py-2 px-4 text-sm break-words text-wrap shadow-sm ${
-                msg.userId === profile.id
-                  ? "bg-blue-500 text-white rounded-tl-lg rounded-tr-lg rounded-br-lg  rounded-bl-xlself-end"
-                  : "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white rounded-tr-lg rounded-br-lg rounded-tl-xl rounded-bl-xl"
-              }`}
-            >
-              {msg.content}
-            </div>
-              <span className="dark:text-muted-foreground text-[10px]">{formatDistanceToNow(new Date(msg.created_at), { locale: ptBR })}</span>
-            <span
-              className={`mt-1 text-[10px] ${
-                msg.userId === profile.id
-                  ? "text-gray-500 dark:text-gray-300 self-end"
-                  : "text-gray-600 dark:text-gray-400 self-start"
-              }`}
-            >
-              {/* {msg.created_at} */}
-            </span>
-          </div>
-          {msg.userId === profile.id && (
-           <DropdownMenu>
-              <DropdownMenuTrigger>
-                  <Avatar className="h-8 w-8 shadow-sm">
-              <AvatarImage src={`http://localhost:3333/uploads/${msg.user.image_path}`}  />
-              <AvatarFallback>{getInialts(msg.user.nome)}</AvatarFallback>
-            </Avatar>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="flex items-center flex-col w-52 gap-1">
-              <img className="h-72 w-72" src={`http://localhost:3333/uploads/${msg.user.image_path}`}  />
-                {msg.userId === profile.id  && (
-                    <div className="flex items-center gap-20 justify-between">
-                      <div>
-                        <span className="text-xs tracking-tighter text-nowrap">{msg.user.nome}</span>
-                      </div>
-                      <div className="flex">
-                           <Trash2 color="red" size={14}/>
-                      </div>
-                    </div>
-                )}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+          {msg.content}
         </div>
-      ))}
+        <span className="dark:text-muted-foreground text-[10px]">
+          {formatDistanceToNow(new Date(msg.created_at), { locale: ptBR })}
+        </span>
+      </div>
+      {msg.userId === profile.id && (
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Avatar className="h-8 w-8 shadow-sm">
+              <AvatarImage src={`http://localhost:3333/uploads/${msg.user.image_path}`} />
+              <AvatarFallback>{getInialts(msg.user.nome)}</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="flex items-center flex-col w-52 gap-1">
+            <img className="h-72 w-72" src={`http://localhost:3333/uploads/${msg.user.image_path}`} />
+            <div className="flex items-center gap-20 justify-between">
+              <span className="text-xs tracking-tighter text-nowrap">{msg.user.nome}</span>
+              <Trash2 color="red" size={14} />
+            </div>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
     </div>
+  ))}
+
+  {/* 🔽 Elemento invisível no fim da lista */}
+  <div ref={endOfMessagesRef} />
+</div>
 
     <Separator />
 
