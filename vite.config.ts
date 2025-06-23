@@ -12,7 +12,5 @@ export default defineConfig({
   },
   build:{
     chunkSizeWarningLimit: 2000,
-    outDir: '../api/public' // <-- vai gerar direto no backend
-
   }
 })

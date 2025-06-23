@@ -134,19 +134,21 @@ export function DashBoardAdmin() {
 >
 
   
-  <span
-    className="
-      absolute inset-0 
-      before:absolute before:inset-y-0 before:-translate-x-full before:-translate-y-1/2
-      before:transform before:rotate-45
-      before:w-8 before:h-36
-      before:bg-white before:opacity-20
-      before:transition-all before:duration-500
-      hover:before:translate-x-full
-      text-nowrap
-      ml-20
-    "
-  />
+<span
+  className="
+    absolute inset-0 
+    hidden sm:inline
+    before:absolute before:inset-y-0 before:-translate-x-full before:-translate-y-1/2
+    before:transform before:rotate-45
+    before:w-8 before:h-36
+    before:bg-white before:opacity-20
+    before:transition-all before:duration-500
+    hover:before:translate-x-full
+    text-nowrap
+    ml-20
+  "
+></span>
+
  <span className="text-nowrap"> Criar novo post</span>
 </button>
 
@@ -158,12 +160,12 @@ export function DashBoardAdmin() {
 
               </header>
               <div className="flex lg:items-center mt-4">
-              <div className="relative lg:w-full lg:flex lg:items-center lg:justify-center">
+              <div className="relative lg:w-full lg:flex lg:items-center lg:justify-center w-full">
    
     <Input 
     onChange={(e)=>handleSearchUsers(e.target.value)} 
     placeholder="Pesquisar..."
-    className="lg:pl-10 lg:pr-4 dark:border-bottom lg:w-96 pl-10 dark:bg-black -ml-4  "  />
+    className="lg:pl-10 lg:pr-4 dark:border-bottom lg:w-96 pl-10 dark:bg-black w-full  "  />
      <Search
       size={16} 
       className="absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 text-zinc-400" />
