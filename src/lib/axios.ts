@@ -21,7 +21,7 @@ api.interceptors.response.use(
   error => {
     if (error.response?.status === 401) {
       // Redirecionar para login ou renovar token
-      window.location.href = '/login';
+      window.location.href = '/sign-in';
     }
     return Promise.reject(error);
   }
